@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encontre o imóvel dos seus sonhos com a Premier Imóveis. Apartamentos e casas de luxo nas melhores localizações.">
+    <title>Premier Imóveis - Luxo e Exclusividade</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+</head>
+<body>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20imóveis%20de%20luxo." 
+       class="whatsapp-float" 
+       target="_blank" 
+       aria-label="Contato via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header / Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#home" class="logo">
+                        <i class="fas fa-crown"></i>
+                        <span>Premier Imóveis</span>
+                    </a>
+                    
+                    <div class="nav-menu" id="navMenu">
+                        <ul class="nav-list">
+                            <li><a href="#home" class="nav-link">Início</a></li>
+                            <li><a href="#imoveis" class="nav-link">Imóveis</a></li>
+                            <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                        </ul>
+                        <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20mais%20informações." 
+                           class="btn-nav-cta" 
+                           target="_blank">
+                            <i class="fab fa-whatsapp"></i> Fale Conosco
+                        </a>
+                    </div>
+                    
+                    <button class="hamburger" id="hamburger" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <video class="hero-video" autoplay muted loop playsinline webkit-playsinline>
+            <source src="https://cdn.coverr.co/videos/coverr-luxury-modern-house-exterior-8456/1080p.mp4" type="video/mp4">
+        </video>
+        
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <span class="hero-subtitle">Exclusividade e Sofisticação</span>
+                <h1 class="hero-title">
+                    Encontre o Imóvel dos<br>
+                    <span class="highlight">Seus Sonhos</span>
+                </h1>
+                <p class="hero-description">
+                    Imóveis de alto padrão nas melhores localizações.<br>
+                    Viva com luxo, conforto e elegância.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://wa.me/5511999999999?text=Quero%20conhecer%20os%20imóveis%20de%20luxo!" 
+                       class="btn btn-primary" 
+                       target="_blank">
+                        <i class="fab fa-whatsapp"></i> Quero Meu Imóvel
+                    </a>
+                    <a href="#imoveis" class="btn btn-secondary">
+                        <i class="fas fa-search"></i> Ver Imóveis
+                    </a>
+                </div>
+                
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Imóveis Premium</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1200+</span>
+                        <span class="stat-label">Clientes Satisfeitos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Anos de Experiência</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Segurança Total</h3>
+                    <p>Todos os imóveis verificados e com documentação completa</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Alto Padrão</h3>
+                    <p>Imóveis selecionados nas melhores regiões</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Atendimento VIP</h3>
+                    <p>Consultores especializados à sua disposição</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Processo Rápido</h3>
+                    <p>Agilidade do primeiro contato até a entrega das chaves</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Gallery Section -->
+    <section id="imoveis" class="properties">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">Portfólio Exclusivo</span>
+                <h2 class="section-title">Imóveis de <span class="highlight">Luxo</span></h2>
+                <p class="section-description">
+                    Descubra nossa seleção premium de imóveis nas melhores localizações
+                </p>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters" data-aos="fade-up" data-aos-delay="100">
+                <div class="filter-group">
+                    <label for="filterType">
+                        <i class="fas fa-building"></i> Tipo
+                    </label>
+                    <select id="filterType" class="filter-select">
+                        <option value="all">Todos os Tipos</option>
+                        <option value="apartamento">Apartamento</option>
+                        <option value="casa">Casa</option>
+                        <option value="cobertura">Cobertura</option>
+                        <option value="penthouse">Penthouse</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filterLocation">
+                        <i class="fas fa-map-marker-alt"></i> Localização
+                    </label>
+                    <select id="filterLocation" class="filter-select">
+                        <option value="all">Todas as Regiões</option>
+                        <option value="jardins">Jardins</option>
+                        <option value="moema">Moema</option>
+                        <option value="itaim">Itaim Bibi</option>
+                        <option value="vila-olimpia">Vila Olímpia</option>
+                        <option value="brooklin">Brooklin</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filterRooms">
+                        <i class="fas fa-bed"></i> Quartos
+                    </label>
+                    <select id="filterRooms" class="filter-select">
+                        <option value="all">Qualquer</option>
+                        <option value="2">2 Quartos</option>
+                        <option value="3">3 Quartos</option>
+                        <option value="4">4+ Quartos</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filterPrice">
+                        <i class="fas fa-dollar-sign"></i> Preço
+                    </label>
+                    <select id="filterPrice" class="filter-select">
+                        <option value="all">Todos os Preços</option>
+                        <option value="1">Até R$ 1.5M</option>
+                        <option value="2">R$ 1.5M - R$ 3M</option>
+                        <option value="3">Acima de R$ 3M</option>
+                    </select>
+                </div>
+
+                <button class="btn-filter-reset" id="resetFilters">
+                    <i class="fas fa-redo"></i> Limpar Filtros
+                </button>
+            </div>
+
+            <!-- Properties Grid -->
+            <div class="properties-grid" id="propertiesGrid">
+                <!-- Property Cards will be dynamically generated -->
+            </div>
+
+            <!-- CTA Between Properties -->
+            <div class="cta-banner" data-aos="zoom-in">
+                <div class="cta-banner-content">
+                    <h3>Não encontrou o que procura?</h3>
+                    <p>Temos acesso a centenas de imóveis exclusivos não listados. Fale com nossos consultores!</p>
+                    <a href="https://wa.me/5511999999999?text=Gostaria%20de%20ver%20imóveis%20exclusivos%20não%20listados." 
+                       class="btn btn-primary" 
+                       target="_blank">
+                        <i class="fab fa-whatsapp"></i> Ver Imóveis Exclusivos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973" alt="Premier Imóveis" loading="lazy">
+                    <div class="about-badge">
+                        <i class="fas fa-award"></i>
+                        <span>15 Anos de<br>Excelência</span>
+                    </div>
+                </div>
+                <div class="about-content" data-aos="fade-left">
+                    <span class="section-subtitle">Sobre Nós</span>
+                    <h2 class="section-title">Excelência em <span class="highlight">Imóveis de Luxo</span></h2>
+                    <p class="about-text">
+                        A <strong>Premier Imóveis</strong> é referência no mercado de imóveis de alto padrão há mais de 15 anos. Nossa missão é conectar pessoas aos imóveis dos seus sonhos, oferecendo um atendimento personalizado e exclusivo.
+                    </p>
+                    <p class="about-text">
+                        Com um portfólio cuidadosamente selecionado, trabalhamos apenas com imóveis premium nas melhores localizações de São Paulo. Nossa equipe de consultores especializados está pronta para oferecer a melhor experiência em consultoria imobiliária.
+                    </p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Imóveis Verificados e Documentação Completa</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Consultores Especializados em Alto Padrão</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Atendimento Personalizado e Exclusivo</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Processo Ágil e Transparente</span>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/5511999999999?text=Gostaria%20de%20conhecer%20mais%20sobre%20a%20Premier%20Imóveis." 
+                       class="btn btn-primary" 
+                       target="_blank">
+                        <i class="fab fa-whatsapp"></i> Fale Com Nossos Especialistas
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="final-cta-content" data-aos="zoom-in">
+                <h2>Pronto Para Encontrar Seu Imóvel dos Sonhos?</h2>
+                <p>Entre em contato agora e descubra as melhores oportunidades em imóveis de luxo</p>
+                <a href="https://wa.me/5511999999999?text=Quero%20encontrar%20meu%20imóvel%20dos%20sonhos!" 
+                   class="btn btn-primary btn-lg" 
+                   target="_blank">
+                    <i class="fab fa-whatsapp"></i> Falar com Consultor Agora
+                </a>
+                <div class="final-cta-trust">
+                    <div class="trust-item">
+                        <i class="fas fa-shield-check"></i>
+                        <span>100% Seguro</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-user-clock"></i>
+                        <span>Atendimento Imediato</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-medal"></i>
+                        <span>Qualidade Garantida</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#home" class="footer-logo">
+                        <i class="fas fa-crown"></i>
+                        <span>Premier Imóveis</span>
+                    </a>
+                    <p>Excelência em imóveis de luxo desde 2010</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/5511999999999" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#imoveis">Imóveis</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+5511999999999">(11) 99999-9999</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contato@premierimoveis.com">contato@premierimoveis.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Av. Paulista, 1000 - São Paulo/SP</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Premier Imóveis. Todos os direitos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
