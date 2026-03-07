@@ -120,7 +120,7 @@ const properties = [
         id: 9,
         type: 'apartamento',
         location: 'itaim',
-        title: 'Apartamento',
+        title: 'Apartamento Itaim Bibi',
         description: 'Localização privilegiada próximo a tudo',
         image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=1470',
         area: 165,
@@ -148,7 +148,7 @@ const properties = [
         id: 11,
         type: 'apartamento',
         location: 'vila-olimpia',
-        title: 'Apartamento',
+        title: 'Apartamento Vila Olímpia',
         description: 'Pronto para morar com varanda gourmet',
         image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=1470',
         area: 140,
@@ -174,7 +174,7 @@ const properties = [
     }
 ];
 
-// Função para formatar preço
+// Formatar preço em BRL
 function formatPrice(price) {
     return new Intl.NumberFormat('pt-BR', {
         style: 'currency',
@@ -183,119 +183,139 @@ function formatPrice(price) {
     }).format(price);
 }
 
-// Função para criar card de imóvel
+// Obter nome legível da localização
+function getLocationName(location) {
+    const locations = {
+        'jardins':      'Jardins',
+        'moema':        'Moema',
+        'itaim':        'Itaim Bibi',
+        'vila-olimpia': 'Vila Olímpia',
+        'brooklin':     'Brooklin'
+    };
+    return locations[location] || location;
+}
+
+// Criar card de imóvel (com preço e CTA)
 function createPropertyCard(property) {
+    const waText = encodeURIComponent(
+        `Olá! Tenho interesse no imóvel "${property.title}" em ${getLocationName(property.location)}. Pode me dar mais informações?`
+    );
+
     return `
-        <div class="property-card" data-type="${property.type}" data-location="${property.location}" data-rooms="${property.rooms}" data-price="${property.price}">
+        <div class="property-card" 
+             data-type="${property.type}" 
+             data-location="${property.location}" 
+             data-rooms="${property.rooms}" 
+             data-price="${property.price}">
+
             <div class="property-image">
                 <img src="${property.image}" alt="${property.title}" loading="lazy">
                 <span class="property-badge">${property.badge}</span>
             </div>
+
             <div class="property-content">
                 <div class="property-location">
                     <i class="fas fa-map-marker-alt"></i>
                     <span>${getLocationName(property.location)}</span>
                 </div>
+
                 <h3 class="property-title">${property.title}</h3>
+
                 <div class="property-features">
                     <div class="feature-item">
                         <i class="fas fa-ruler-combined"></i>
-                        <span>${property.area}m²</span>
+                        <span>${property.area} m²</span>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-bed"></i>
                         <span>${property.rooms} Quartos</span>
                     </div>
                     <div class="feature-item">
+                        <i class="fas fa-bath"></i>
+                        <span>${property.bathrooms} Banheiros</span>
+                    </div>
+                    <div class="feature-item">
                         <i class="fas fa-car"></i>
                         <span>${property.parking} Vagas</span>
                     </div>
+                </div>
+
+                <div class="property-footer">
+                    <span class="property-price">${formatPrice(property.price)}</span>
+                    <a href="https://wa.me/5511999999999?text=${waText}"
+                       class="btn-property-cta"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> Consultar
+                    </a>
                 </div>
             </div>
         </div>
     `;
 }
 
-// Função para obter nome da localização
-function getLocationName(location) {
-    const locations = {
-        'jardins': 'Jardins',
-        'moema': 'Moema',
-        'itaim': 'Itaim Bibi',
-        'vila-olimpia': 'Vila Olímpia',
-        'brooklin': 'Brooklin'
-    };
-    return locations[location] || location;
-}
-
-// Função para renderizar imóveis
+// Renderizar grid de imóveis
 function renderProperties(filteredProperties = properties) {
     const grid = document.getElementById('propertiesGrid');
-    
+    if (!grid) return;
+
     if (filteredProperties.length === 0) {
         grid.innerHTML = `
-            <div style="grid-column: 1/-1; text-align: center; padding: 4rem 0;">
-                <i class="fas fa-search" style="font-size: 4rem; color: var(--gold-primary); margin-bottom: 1rem;"></i>
-                <h3 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem;">Nenhum imóvel encontrado</h3>
-                <p style="color: var(--off-white); font-size: 1.125rem; margin-bottom: 2rem;">Tente ajustar os filtros ou entre em contato conosco</p>
-                <a href="https://wa.me/5511999999999?text=Gostaria%20de%20ajuda%20para%20encontrar%20um%20imóvel." 
-                   class="btn btn-primary" 
-                   target="_blank">
+            <div style="grid-column:1/-1; text-align:center; padding:4rem 1rem;">
+                <i class="fas fa-search" style="font-size:3.5rem; color:var(--gold-primary); margin-bottom:1rem; display:block;"></i>
+                <h3 style="font-family:var(--font-heading); font-size:1.8rem; color:var(--text-dark); margin-bottom:0.75rem;">
+                    Nenhum imóvel encontrado
+                </h3>
+                <p style="color:var(--text-body); font-size:1rem; margin-bottom:2rem;">
+                    Tente ajustar os filtros ou entre em contato conosco
+                </p>
+                <a href="https://wa.me/5511999999999?text=Gostaria%20de%20ajuda%20para%20encontrar%20um%20imóvel."
+                   class="btn btn-blue"
+                   target="_blank"
+                   rel="noopener noreferrer">
                     <i class="fab fa-whatsapp"></i> Falar com Consultor
                 </a>
             </div>
         `;
         return;
     }
-    
-    grid.innerHTML = filteredProperties.map(property => createPropertyCard(property)).join('');
+
+    grid.innerHTML = filteredProperties.map(p => createPropertyCard(p)).join('');
 }
 
-// Função para filtrar imóveis
+// Filtrar imóveis pelos selects
 function filterProperties() {
-    const typeFilter = document.getElementById('filterType').value;
-    const locationFilter = document.getElementById('filterLocation').value;
-    const roomsFilter = document.getElementById('filterRooms').value;
-    const priceFilter = document.getElementById('filterPrice').value;
-    
+    const typeFilter     = document.getElementById('filterType')?.value     || 'all';
+    const locationFilter = document.getElementById('filterLocation')?.value || 'all';
+    const roomsFilter    = document.getElementById('filterRooms')?.value    || 'all';
+    const priceFilter    = document.getElementById('filterPrice')?.value    || 'all';
+
     let filtered = properties;
-    
-    // Filtro de tipo
-    if (typeFilter !== 'all') {
+
+    if (typeFilter !== 'all')
         filtered = filtered.filter(p => p.type === typeFilter);
-    }
-    
-    // Filtro de localização
-    if (locationFilter !== 'all') {
+
+    if (locationFilter !== 'all')
         filtered = filtered.filter(p => p.location === locationFilter);
-    }
-    
-    // Filtro de quartos
+
     if (roomsFilter !== 'all') {
         const rooms = parseInt(roomsFilter);
-        if (rooms === 4) {
-            filtered = filtered.filter(p => p.rooms >= 4);
-        } else {
-            filtered = filtered.filter(p => p.rooms === rooms);
-        }
+        filtered = rooms >= 4
+            ? filtered.filter(p => p.rooms >= 4)
+            : filtered.filter(p => p.rooms === rooms);
     }
-    
-    // Filtro de preço
+
     if (priceFilter !== 'all') {
-        const priceRange = parseInt(priceFilter);
-        if (priceRange === 1) {
-            filtered = filtered.filter(p => p.price <= 1500000);
-        } else if (priceRange === 2) {
-            filtered = filtered.filter(p => p.price > 1500000 && p.price <= 3000000);
-        } else if (priceRange === 3) {
-            filtered = filtered.filter(p => p.price > 3000000);
-        }
+        const range = parseInt(priceFilter);
+        if (range === 1) filtered = filtered.filter(p => p.price <= 1500000);
+        if (range === 2) filtered = filtered.filter(p => p.price > 1500000 && p.price <= 3000000);
+        if (range === 3) filtered = filtered.filter(p => p.price > 3000000);
     }
-    
+
     renderProperties(filtered);
 }
 
-// Exportar para uso global
-window.properties = properties;
+// Expor globalmente
+window.properties      = properties;
 window.renderProperties = renderProperties;
 window.filterProperties = filterProperties;
